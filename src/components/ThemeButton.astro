@@ -1,0 +1,25 @@
+<button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" id="theme-button">Cambiar de tema</button>
+
+<script>
+const themeButton = document.querySelector('#theme-button');
+
+themeButton?.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  themeButton.classList.toggle('active');
+  
+  if (document.body.classList.contains('dark')) {
+    localStorage.setItem('theme', 'true');
+  } else {
+    localStorage.setItem('theme', 'false');
+  }
+})
+
+if (localStorage.getItem('theme') === 'true') {
+  document.body.classList.add('dark');
+  themeButton?.classList.add('active');
+} else {
+  document.body.classList.remove('dark');
+  themeButton?.classList.remove('active');
+}
+
+</script>
